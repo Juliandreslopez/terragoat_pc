@@ -12,6 +12,15 @@ resource "aws_s3_bucket" "dockingbay" {
 }
 
 
+resource "aws_s3_bucket_versioning" "dockingbay" {
+  bucket = aws_s3_bucket.dockingbay.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+
 resource "aws_s3_bucket" "dockingbay_log_bucket" {
   bucket = "dockingbay-log-bucket"
 }
